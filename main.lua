@@ -27,10 +27,10 @@ local function CheckHealth(unit)
     local healthPercentage = (currentHealth / maxHealth) * 100
     local playerName = UnitName(unit)
 
-    if healthPercentage <= 30 then
+    if healthPercentage <= 40 then
         SendChatMessage("WARNING: " .. playerName .. " needs heals!!", "PARTY")
         healthMessageCount = 1
-    elseif healthPercentage <= 50 and healthMessageCount <= 3 then
+    elseif healthPercentage <= 55 and healthMessageCount <= 3 then
         SendChatMessage(playerName .. " is low", "PARTY")
         healthMessageCount = healthMessageCount + 1
     end
