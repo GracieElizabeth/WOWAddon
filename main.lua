@@ -15,7 +15,7 @@ local function CheckMana()
         SendChatMessage("Warning: Critically low mana", "PARTY")
         manaMessageCount = 1
     elseif manaPercentage <= 35 and manaMessageCount <= 2 then
-        SendChatMessage("Warning: Mana Low", "PARTY")
+        SendChatMessage("Mana Low", "PARTY")
         manaMessageCount = manaMessageCount + 1
     end
 end
@@ -25,12 +25,13 @@ local function CheckHealth(unit)
     local maxHealth = UnitHealthMax(unit)
     local currentHealth = UnitHealth(unit)
     local healthPercentage = (currentHealth / maxHealth) * 100
+    local playerName = UnitName(unit)
 
     if healthPercentage <= 30 then
-        SendChatMessage("WARNING: " .. unit .. " needs heals!!", "PARTY")
+        SendChatMessage("WARNING: " .. playerName .. " needs heals!!", "PARTY")
         healthMessageCount = 1
     elseif healthPercentage <= 50 and healthMessageCount <= 3 then
-        SendChatMessage(unit .. " is low", "PARTY")
+        SendChatMessage(playerName .. " is low", "PARTY")
         healthMessageCount = healthMessageCount + 1
     end
 end
